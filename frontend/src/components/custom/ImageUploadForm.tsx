@@ -45,7 +45,7 @@ function ImageUploadForm({ fetchData, isRoot, folderId }: { fetchData: () => voi
         formBody.file = image;
         try {
             const res = await axiosInstance.post("/image", formBody, {
-                timeout: 10*1000, // 10 seconds timeout
+                timeout: 60*1000, // 60 seconds timeout
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
