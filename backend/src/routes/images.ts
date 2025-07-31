@@ -51,9 +51,9 @@ router.post('/', upload.single("file"), async (req: Request, res: Response) => {
             parent?: string;
             owner?: string;
         } = { url: imageUrl, name: fileName, owner: req.user };
-
+        
         let imageData
-        if (isRoot && isRoot===true) {
+        if (isRoot === "true") {
             imageObject.isRoot = true;
             imageData = await Image.create(imageObject);
         } else {
@@ -63,9 +63,9 @@ router.post('/', upload.single("file"), async (req: Request, res: Response) => {
             // MONGO DB TRANSACTION STARTS
             session.startTransaction();
             const imageData = await Image.create(imageObject);
-            
+            console.log(folderId)
             const parent = await Folder.findById(folderId);
-            if(!parent){
+            if(parent==null){
                 await session.abortTransaction();
                 throw new Error("Parent Folder not found!");
             }
