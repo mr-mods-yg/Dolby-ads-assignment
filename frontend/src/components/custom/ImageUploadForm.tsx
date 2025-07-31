@@ -70,8 +70,7 @@ function ImageUploadForm({ fetchData, isRoot, folderId }: { fetchData: () => voi
                     <DialogHeader>
                         <DialogTitle>Upload New Image</DialogTitle>
                         <DialogDescription>
-                            It will create a new image. Click the button when you&apos;re
-                            done.
+                            <b className="text-red-600">Note: Maximum upload size for a image file is 10MB</b>
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4">
