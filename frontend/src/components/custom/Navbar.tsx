@@ -33,7 +33,8 @@ export function Navbar() {
                             <DropdownMenuContent align="end" className="bg-gray-900 text-white">
                                 
                                 {user ?<DropdownMenuItem onClick={()=>{
-                                    window.location.href = "/logout"
+                                    localStorage.removeItem("token");
+                                    navigate("/");
                                 }}>Logout</DropdownMenuItem> : <><DropdownMenuItem onClick={()=>{
                                     window.location.href = "/login"
                                 }}>Login</DropdownMenuItem>
