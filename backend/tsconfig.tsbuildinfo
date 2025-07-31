@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/lib/cloudinary.ts","./src/lib/db.ts","./src/middleware/authmiddleware.ts","./src/models/folder.ts","./src/models/image.ts","./src/models/user.ts","./src/routes/auth.ts","./src/routes/folder.ts","./src/routes/images.ts","./src/zod/authschema.ts","./src/zod/folderschema.ts"],"version":"5.8.3"}
