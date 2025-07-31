@@ -28,7 +28,7 @@ function ImageUploadForm({ fetchData, isRoot, folderId }: { fetchData: () => voi
             setImageName("Untitled");
         }
     },[image])
-    const submitForm = async () => {
+    const submitForm = async (isRoot: boolean) => {
         setUploadingImage(true)
         if (!image || !imageName || imageFormat.trim()=="") {
             setUploadingImage(false);
@@ -104,7 +104,7 @@ function ImageUploadForm({ fetchData, isRoot, folderId }: { fetchData: () => voi
                         <DialogClose ref={closeRef} asChild>
                             <Button variant="outline">Cancel</Button>
                         </DialogClose>
-                        <Button disabled={uploadingImage} onClick={() => { submitForm() }}>{uploadingImage ? "Uploading Image" : "Upload Image"} {uploadingImage && <LoaderCircle className="animate-spin"/>}</Button>
+                        <Button disabled={uploadingImage} onClick={() => { submitForm(isRoot) }}>{uploadingImage ? "Uploading Image" : "Upload Image"} {uploadingImage && <LoaderCircle className="animate-spin"/>}</Button>
                     </DialogFooter>
                 </DialogContent>
             </form>
