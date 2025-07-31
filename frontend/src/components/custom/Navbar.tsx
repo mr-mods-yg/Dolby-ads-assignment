@@ -31,12 +31,15 @@ export function Navbar() {
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end" className="bg-gray-900 text-white">
-                                <DropdownMenuItem onClick={()=>{
+                                
+                                {user ?<DropdownMenuItem onClick={()=>{
+                                    window.location.href = "/logout"
+                                }}>Logout</DropdownMenuItem> : <><DropdownMenuItem onClick={()=>{
                                     window.location.href = "/login"
                                 }}>Login</DropdownMenuItem>
                                 <DropdownMenuItem onClick={()=>{
                                     window.location.href = "/signup"
-                                }}>Sign Up</DropdownMenuItem>
+                                }}>Sign Up</DropdownMenuItem></>}
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </nav>
