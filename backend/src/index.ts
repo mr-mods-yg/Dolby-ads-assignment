@@ -7,6 +7,7 @@ import folderRoutes from "./routes/folder";
 import imageRoutes from "./routes/images";
 import authMiddleware from "./middleware/authMiddleware";
 dotenv.config();
+const port = process.env.PORT || 4000
 
 const app = express();
 
@@ -25,7 +26,7 @@ app.use(authMiddleware);
 app.use("/folder", folderRoutes);
 app.use("/image", imageRoutes);
 
-app.listen(3700, async ()=>{
-    console.log("app is listening on port 3700")
+app.listen(port, async ()=>{
+    console.log("app is listening on port "+port)
     await connectDB();
 })
