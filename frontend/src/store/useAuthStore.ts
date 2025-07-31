@@ -39,7 +39,9 @@ const useAuthStore = create((set) => ({
     signup: async (formData: z.infer<typeof signupSchema>): Promise<boolean> => {
         set({ isSubmitting: true });
         try {
-            const res = await axiosInstance.post('/auth/signup', formData)
+            const res = await axiosInstance.post('/auth/signup', formData, {
+                timeout: 60000 // 60 seconds
+            })
             if (res.status == 201) {
                 // success
                 set({ isSubmitting: false });
@@ -63,7 +65,9 @@ const useAuthStore = create((set) => ({
     login: async (formData: z.infer<typeof loginSchema>): Promise<boolean> => {
         set({ isSubmitting: true });
         try {
-            const res = await axiosInstance.post('/auth/login', formData)
+            const res = await axiosInstance.post('/auth/login', formData, {
+                timeout: 60000 // 60 seconds
+            })
             if (res.status == 200) {
                 // success
                 localStorage.setItem('token', "Bearer "+res.data.token);
@@ -89,7 +93,7 @@ const useAuthStore = create((set) => ({
         set({ isChecking: true });
         try {
             const res = await axiosInstance.post('/auth/check', { token }, {
-                timeout: 5000 // 5 seconds
+                timeout: 30000 // 30 seconds
             });
             if (res.status == 200) {
                 // success
